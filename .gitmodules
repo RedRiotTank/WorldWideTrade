@@ -1,0 +1,6 @@
+[submodule "wwtapi"]
+	path = wwtapi
+	url = https://github.com/RedRiotTank/wwtapi
+[submodule "wwtshop"]
+	path = wwtshop
+	url = https://github.com/RedRiotTank/wwtshop
