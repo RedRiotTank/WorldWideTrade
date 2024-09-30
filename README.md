@@ -11,7 +11,7 @@ This repository is a set of two repositories:
 
 Both of the repositories will always have, at least, two branches:
 - Master: Will be the latest stable version of the project, ready/in production deployment.
-- Develop: Development branch, where changes from new implementations and errors will converge.
+- Develop: Development branch, where changes from new implementations and bug fixes will converge.
 
 In addition, new branches will be opened and closed depending on the necessary issues.
 
