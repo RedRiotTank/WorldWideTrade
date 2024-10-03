@@ -20,6 +20,16 @@ In addition, new branches will be opened and closed depending on the necessary i
 - Api: Will be doing unit and integration testing for code coverage and continuous integration.
 - Plugin: Will be doing in game testing as integration tests since we can not do unit testing for this develop.
 
+## Cloud Computing scalability
+ 
+This project will be divided into different instances using cloud computing:
+- API instance.
+- Logs Instance.
+- Database instance.
+- n Minecraft servers instances.
+
+We could have n minecraft servers (in the cloud or locally). These servers will have the [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master) plugin installed, the plugin will manage interactions with [wwtapi](https://github.com/RedRiotTank/wwtapi) which will be running in the cloud and linked to a database instance. Logger instance will be registering transactions or possible errors.   
+
 ## About this repository
 
 Remember this repository is a modules container, you can learn more form git modules [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). This means the references on this repository won't point directly to the master submodules branch but the last master submodule branch that was updated for this repository. So I will be updating this repository pointers everytime I obtain a stable version of any of the submodules.  
