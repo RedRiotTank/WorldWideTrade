@@ -29,7 +29,7 @@ In addition, Intellij IDEA's task manager has a very usefull option called "cove
     <img width="304" alt="{179980D1-48AB-4B44-A7DF-094DE0E47C67}" src="https://github.com/user-attachments/assets/8d56f091-f3f7-4211-831b-380a8b42e737">
 </p>
 
-You can see in the photo the coverage percentage of every development. In the next photo, you can see in green covered code and in red code that doesn't have been covered yet or it fails (it doesn't because this development is not finished yet but it will be covered when it's finished).
+You can see in the photo the coverage percentage of every development. In the next photo, you can see in green covered code and in red code that haven't been covered yet or it fails (it doesn't because this development is not finished yet but it will be covered when it's finished).
 
 <p align="center">
  <img width="473" alt="{D8936CEE-BDAF-4016-848C-ACD256323E08}" src="https://github.com/user-attachments/assets/5aed71b3-1662-422e-a4f8-9df10d6dab4d">
