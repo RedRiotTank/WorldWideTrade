@@ -1,4 +1,4 @@
-# Word Wide Trade
+# World Wide Trade
 
 World Wide Trade is a set of software built for minecraft servers which idea is allowing players to buy and sell items regardless the game server they're in (when both of the server have this system installed).
 
