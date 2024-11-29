@@ -23,6 +23,20 @@ Both of the repositories will always have, at least, two branches:
 
 In addition, new branches will be opened and closed depending on the necessary issues.
 
+## API structure
+
+For the design of the REST API, we will follow the design patterns recommended by Spring Boot. This involves a modular and layered design that aims to separate controller logic, business logic, database access logic, and the mapping and modeling of entities. To achieve this, we will have:
+
+- **[Controller](https://github.com/RedRiotTank/wwtapi/tree/master/src/main/kotlin/wwt/api/controller):** Handles incoming requests and calls the corresponding service to retrieve the required data. It will also manage possible [exceptions](https://github.com/RedRiotTank/wwtapi/tree/master/src/main/kotlin/exception) that may arise during the operation flow.
+
+- **[Service](https://github.com/RedRiotTank/wwtapi/tree/master/src/main/kotlin/wwt/api/service):** Implements the corresponding business logic, performing the necessary data processing.
+
+- **[Repository](https://github.com/RedRiotTank/wwtapi/tree/master/src/main/kotlin/wwt/api/repository):** Abstracts database access through an interface.
+
+- **[Model](https://github.com/RedRiotTank/wwtapi/tree/master/src/main/kotlin/wwt/api/entity):** Models the structure of the database tables.
+
+- **[DTOs](https://github.com/RedRiotTank/wwtapi/tree/master/src/main/kotlin/wwt/api/dto):** Represent the potential input and output objects for data exchange in the API.
+
 ## Testing
 
 - Api: Will be doing unit and integration testing for code coverage and continuous integration.
