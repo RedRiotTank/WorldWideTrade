@@ -7,6 +7,14 @@ This repository is a set of two repositories:
 - [wwtapi](https://github.com/RedRiotTank/wwtapi): This is the rest api of the application, it manages players requests and access the common server database. You can consult it if you are interested in how it is done or if you want to make any contribution/improvement, but it is not necessary to interact with it in any way for the system to work since it is already deployed in the cloud.
 - [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master): This is the minecraft server plugin you have to introduce in your server (or any other fork that does the requests). This plugin will provide users a graphic interphace to buy and sell their items and allow admins to manage what players can or can't do.
 
+## Project frameworks
+
+The microservices management frameworks have been as follows:
+
+[Spring Boot](https://spring.io/projects/spring-boot) in [wwtapi](https://github.com/RedRiotTank/wwtapi): Spring Boot is used in the Kotlin backend for its robust ecosystem, easy integration with other Spring projects, and extensive support for REST APIs. It simplifies the setup and configuration process, enabling rapid development and scalability for complex applications.
+
+[Ktor](https://ktor.io/docs/welcome.html) in [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master): Ktor is ideal for making requests in a Minecraft plugin because it is lightweight, asynchronous, and well-suited for Kotlin. Its flexibility and minimalistic design allow seamless integration into environments with specific requirements, like plugins, while maintaining high performance.
+
 ## Branch metodology
 
 Both of the repositories will always have, at least, two branches:
