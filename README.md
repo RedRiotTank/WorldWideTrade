@@ -76,6 +76,18 @@ This project will be divided into different instances using cloud computing:
 
 We could have n minecraft servers (in the cloud or locally). These servers will have the [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master) plugin installed, the plugin will manage interactions with [wwtapi](https://github.com/RedRiotTank/wwtapi) which will be running in the cloud and linked to a database instance. Logger instance will be registering transactions or possible errors.   
 
+## Log System
+
+It doesn't make much sense to implement logs in the plugin part of this project ([wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master)) because each server will handle its logging logic in different ways, so the logs will only be placed in the API ([wwtapi](https://github.com/RedRiotTank/wwtapi)).
+
+For this, I will log request receptions in the controllers and the objects returned by the services, as well as when exceptions are thrown.
+
+I am using the [slf4j](https://www.slf4j.org) logging library, which allows configuring different log levels such as DEBUG, INFO, WARNING, ERROR, and CRITICAL. This makes it easy to adjust the detail of the messages logged depending on the needs of the environment, from detailed information for debugging to critical error messages.
+
+Currently, the logs are printed to the screen to aid with debugging during development and are also written to a local file. Later on, when I have a log server in place, they will be configured to be sent via Logstash, allowing for more efficient centralized log management. You can check configuration in [logback](https://github.com/RedRiotTank/wwtapi/blob/master/src/main/resources/logback-spring.xml).
+
+Each log will, by default, include relevant information such as the date, the location in the code where it occurs, the log type (error, info, etc.), and the corresponding message.
+
 ## About this repository
 
 Remember this repository is a modules container, you can learn more form git modules [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). This means the references on this repository won't point directly to the master submodules branch but the last master submodule branch that was updated for this repository. So I will be updating this repository pointers everytime I obtain a stable version of any of the submodules.  
