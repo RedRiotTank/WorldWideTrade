@@ -1,4 +1,4 @@
-# World Wide Trade
+# World Wide Trade (hito 1)
 
 World Wide Trade is a set of software built for minecraft servers which idea is allowing players to buy and sell items regardless the game server they're in (when both of the server have this system installed).
 
@@ -7,7 +7,7 @@ This repository is a set of two repositories:
 - [wwtapi](https://github.com/RedRiotTank/wwtapi): This is the rest api of the application, it manages players requests and access the common server database. You can consult it if you are interested in how it is done or if you want to make any contribution/improvement, but it is not necessary to interact with it in any way for the system to work since it is already deployed in the cloud.
 - [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master): This is the minecraft server plugin you have to introduce in your server (or any other fork that does the requests). This plugin will provide users a graphic interphace to buy and sell their items and allow admins to manage what players can or can't do.
 
-## Project frameworks
+## Project frameworks (hito 3)
 
 The microservices management frameworks have been as follows:
 
@@ -15,7 +15,7 @@ The microservices management frameworks have been as follows:
 
 [Ktor](https://ktor.io/docs/welcome.html) in [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master): Ktor is ideal for making requests in a Minecraft plugin because it is lightweight, asynchronous, and well-suited for Kotlin. Its flexibility and minimalistic design allow seamless integration into environments with specific requirements, like plugins, while maintaining high performance.
 
-## Branch metodology
+## Branch metodology (hito 1)
 
 Both of the repositories will always have, at least, two branches:
 - Master: Will be the latest stable version of the project, ready/in production deployment.
@@ -23,7 +23,7 @@ Both of the repositories will always have, at least, two branches:
 
 In addition, new branches will be opened and closed depending on the necessary issues.
 
-## API structure
+## API structure (hito 3)
 
 For the design of the REST API, we will follow the design patterns recommended by Spring Boot. This involves a modular and layered design that aims to separate controller logic, business logic, database access logic, and the mapping and modeling of entities. To achieve this, we will have:
 
@@ -37,12 +37,12 @@ For the design of the REST API, we will follow the design patterns recommended b
 
 - **[DTOs](https://github.com/RedRiotTank/wwtapi/tree/master/src/main/kotlin/wwt/api/dto):** Represent the potential input and output objects for data exchange in the API.
 
-## Testing
+## Testing (hito 2 y 3)
 
 - Api: Will be doing unit and integration testing for code coverage and continuous integration.
 - Plugin: Will be doing in game testing as integration tests since we can not do unit testing for this development.
 
-### Task manager election
+### Task manager election (hito 2)
 For task management with tests I will be using the Intellij IDEA's integrated task manager since it has native support with the testing framework the project will be using.
 
 In addition, Intellij IDEA's task manager has a very usefull option called "coverage" which allows you to see and manage the percentage of code you have covered and see in the code as you program exactly which areas are covered and which are not.
@@ -58,13 +58,13 @@ You can see in the photo the coverage percentage of every development. In the ne
 </p>
 
 
-### Assertion library and Testing framework
+### Assertion library and Testing framework (hito 2)
 This project won't have testing in compilation time for [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master) (since this will be running in a minecraft server, so we can just test it on game as integration test), so this will apply only for [wwtapi](https://github.com/RedRiotTank/wwtapi). The api is being built in kotlin with Spring Boot framework, which implements its own assertion library ([springframework.test](https://docs.spring.io/spring-framework/reference/testing/unit.html)), combinated with [JUnit 5](https://junit.org/junit5/docs/current/user-guide/) (JUnit + Jupiter) as testing framwork, will conform perfectly to any API REST made with Spring Boot. This testing architecture is the most common and used for Spring Boot development thanks to the great support and consistency that it has obtained over the years in the community of this framework.
 
 Since this application is being build in Kotlin for both (api and minecraft plugin), which is based in Java, we have two popular options for compilation integration, Gradle and Maven. It is true that Gradle is newer and has better multi-project support; however, I have preferred to maintain the robustness that a well-established system like Maven provides, in which I also have more experience of use.
 This way, Maven will run the tests on the project builds and will notify us if any test is failing.
 
-### Continuous integration
+### Continuous integration (hito 2)
 
 WorldWide Trade will be maintained after its completion as an open source repository, so I have decided that the best way to perform continuous integration is through GitHub Actions, as this tool will allow users to quickly see if the business logic is working correctly.
 
@@ -83,12 +83,12 @@ To review the test execution process more thoroughly, we could go into the githu
 </p>
 
 
-### Business logic testing
+### Business logic testing (hito 2)
 At this point, [wwtapi](https://github.com/RedRiotTank/wwtapi) already has business logic implemented and correctly tested for the action of selling objects, you can, for example, review the tests for its [controller](https://github.com/RedRiotTank/wwtapi/blob/f891709364532a5ceadde2a472253a573e7f6a96/src/test/kotlin/wwt/api/controller/ItemControllerTest.kt) or its [service](https://github.com/RedRiotTank/wwtapi/blob/f891709364532a5ceadde2a472253a573e7f6a96/src/test/kotlin/wwt/api/controller/ItemControllerTest.kt).
 
 As you can see, the service responses are mocked in the controller and the database responses are mocked in the service. This helps maintain the unit testing principle of checking the functionality of only a specific code fragment and thus being able to abstract from other functionalities or the data source.
 
-## Cloud Computing scalability
+## Cloud Computing scalability (hito 1)
  
 This project will be divided into different instances using cloud computing:
 - API instance.
@@ -98,7 +98,7 @@ This project will be divided into different instances using cloud computing:
 
 We could have n minecraft servers (in the cloud or locally). These servers will have the [wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master) plugin installed, the plugin will manage interactions with [wwtapi](https://github.com/RedRiotTank/wwtapi) which will be running in the cloud and linked to a database instance. Logger instance will be registering transactions or possible errors.   
 
-## Log System
+## Log System (hito 3)
 
 It doesn't make much sense to implement logs in the plugin part of this project ([wwtshop](https://github.com/RedRiotTank/wwtshop/tree/master)) because each server will handle its logging logic in different ways, so the logs will only be placed in the API ([wwtapi](https://github.com/RedRiotTank/wwtapi)).
 
