@@ -110,6 +110,26 @@ Currently, the logs are printed to the screen to aid with debugging during devel
 
 Each log will, by default, include relevant information such as the date, the location in the code where it occurs, the log type (error, info, etc.), and the corresponding message.
 
+## Container Architecture (hito 4)
+![FULL](https://github.com/user-attachments/assets/f5682304-b9bc-428d-9ddd-8dc9da74edff)
+
+
+The bulk of the container architecture is built around the backend architecture, since the client side (minecraft servers) will not necessarily be under our control (we could create a minecraft server container, but I consider it inappropriate to force the client to do so).
+
+The architecture has the different Dockerfiles differentiated, which provides scalability to the application, and the entire construction is unified in a single [compose.yml](https://github.com/RedRiotTank/wwtapi/blob/master/compose.yml). The logging system is made using an EFK stack.
+
+The containers are the following:
+
+- app: Since spring runs on a tomcat virtualization, I have chosen a stable image of this container, to which I pass the war execution file. [Dockerfile](https://github.com/RedRiotTank/wwtapi/blob/master/Dockerfile).
+
+- db: For the database I have chosen a stable image of MariaDB (since it is an open source relational database), to which some environment variables and the entry of an [initialization file](https://github.com/RedRiotTank/wwtapi/blob/master/db/init.sql) are configured. [Dockerfile](https://github.com/RedRiotTank/wwtapi/blob/master/db/Dockerfile)
+
+- Filebeat: It allows me to efficiently collect and process the logs produced by spring. The image used corresponds to a stable and compatible version of the official elastic stack. It also has a shared volume which allows you to access the spring logs. You can consult its Dockerfile and its configuration. [Dockerfile](https://github.com/RedRiotTank/wwtapi/blob/master/logs/filebeat/Dockerfile).
+
+- ElasticSearch: It is a highly scalable search engine, which I use as a log database. For this I have used a stable and compatible version of the elastic satck.
+
+- Kibana: It is a data visualization tool, which allows you to visualize and analyze data stored in elasticsearch in a graphical and intuitive way. I use it to view the logs.
+
 ## About this repository
 
 Remember this repository is a modules container, you can learn more form git modules [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). This means the references on this repository won't point directly to the master submodules branch but the last master submodule branch that was updated for this repository. So I will be updating this repository pointers everytime I obtain a stable version of any of the submodules.  
