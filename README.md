@@ -130,6 +130,18 @@ The containers are the following:
 
 - Kibana: It is a data visualization tool, which allows you to visualize and analyze data stored in elasticsearch in a graphical and intuitive way. I use it to view the logs.
 
+### Github packages (hito 4)
+In order to achieve greater integrity and improve version control of the application, custom container images have been created in [GitHub Packages](https://github.com/redriottank/wwtapi/pkgs/container/wwtapi) for the app, you can see how it's used on the followings dockerfiles:
+
+- [app](https://github.com/RedRiotTank/wwtapi/blob/master/Dockerfile)
+- [db](https://github.com/RedRiotTank/wwtapi/blob/master/db/Dockerfile)
+- [filebeat](https://github.com/RedRiotTank/wwtapi/blob/master/logs/filebeat/Dockerfile)
+- kibana (later)
+- elasticsearch (later)
+
+In addition, a [Github workflow](https://github.com/RedRiotTank/wwtapi/blob/master/.github/workflows/docker-publish.yml) has been added that will update these images when their corresponding dockerfiles are updated and will also be executed through Continuous Integration to check the correct operation of the containers.
+
+
 ## About this repository
 
 Remember this repository is a modules container, you can learn more form git modules [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). This means the references on this repository won't point directly to the master submodules branch but the last master submodule branch that was updated for this repository. So I will be updating this repository pointers everytime I obtain a stable version of any of the submodules.  
