@@ -139,7 +139,7 @@ In order to achieve greater integrity and improve version control of the applica
 - kibana (later)
 - elasticsearch (later)
 
-In addition, a [Github workflow](https://github.com/RedRiotTank/wwtapi/blob/master/.github/workflows/docker-publish.yml) has been added that will update these images when their corresponding dockerfiles are updated and will also be executed through Continuous Integration to check the correct operation of the containers.
+In addition, a [Github workflow](https://github.com/RedRiotTank/wwtapi/blob/master/.github/workflows/docker-publish.yml) has been added that will update these images when their corresponding dockerfiles are updated and will also be executed through Continuous Integration to check the correct operation of the containers applying then some basic operations that will confirm the container is up correctly.
 
 
 ## About this repository
