@@ -116,7 +116,7 @@ Each log will, by default, include relevant information such as the date, the lo
 
 The bulk of the container architecture is built around the backend architecture, since the client side (minecraft servers) will not necessarily be under our control (we could create a minecraft server container, but I consider it inappropriate to force the client to do so).
 
-The architecture has the different Dockerfiles differentiated, which provides scalability to the application, and the entire construction is unified in a single [compose.yml](https://github.com/RedRiotTank/wwtapi/blob/master/compose.yml). The logging system is made using an EFK stack.
+The architecture has the different Dockerfiles differentiated, which provides scalability to the application, and the entire construction is unified in a single [compose.yml](https://github.com/RedRiotTank/wwtapi/blob/master/compose.yml) (Check it since it is completely committed to be self-explanatory). The logging system is made using an EFK stack.
 
 The containers are the following:
 
