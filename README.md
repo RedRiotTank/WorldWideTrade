@@ -182,7 +182,14 @@ This machine has been associated with the default network, where port 3306 (data
 This way, although the IaaS has not been strictly converted into a PaaS, we have abstracted it enough so that the user does not need to worry about the underlying infrastructure and can simply manage the database by accessing it via the public IP through any DBMS.
 
 ### WWTAPI deployment
-Cloud Run is a PaaS service offered by Google Cloud, which allows you to manage Knative containers. There is no need to manage the number of instances or the infrastructure, as both are abstracted and will be automatically managed. It has been configured to automatically deploy the Dockerfile of the API in this repository, so that every time a push is made to the production branch (master), a new image will be built, replacing the current service process with a new one that includes the latest features. You can check this configuration in the [notebook](https://github.com/RedRiotTank/wwtapi/blob/master/gcloudBuild.ipynb).
+Cloud Run is a PaaS service offered by Google Cloud, which allows you to manage Knative containers. There is no need to manage the number of instances or the infrastructure, as both are abstracted and will be automatically managed. It has been configured to automatically deploy the Dockerfile of the API in this repository, so that every time a push is made to the production branch (master), a new image will be built, replacing the current service process with a new one that includes the latest features. In general terms, you can set up this link between a Cloud Run service and a GitHub repository by configuring a trigger, even so, you can review the entire process in the [notebook](https://github.com/RedRiotTank/wwtapi/blob/master/gcloudBuild.ipynb).
+`
+gcloud run deploy wwtapi \
+    --source https://github.com/redriottank/wwtapi \
+    --region=europe-central2 \
+    --allow-unauthenticated \
+    --platform=managed
+`
 
 <p align="center">
 <img width="319" alt="{717BA287-94E4-4B05-8E3D-0850C0D943FF}" src="https://github.com/user-attachments/assets/446ddf6e-6101-4938-8e83-f649f3564016" />
